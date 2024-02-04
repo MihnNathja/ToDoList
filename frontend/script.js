@@ -5,7 +5,24 @@ document.getElementById("myInput").addEventListener("keypress", function(event) 
       event.preventDefault();
       // Get the value of the input field
       var inputValue = this.value;
-      // phần get data nằm ở dưới chỗ này
-      console.log(inputValue);
+      // phần post data
+      submitData(inputValue);
+      // chèn vào DOM
+      var newElement = document.createElement("p"); 
+      var textNode = document.createTextNode(inputValue); // Create a text node with input value
+      newElement.appendChild(textNode); // Append the text to <p>
+      document.getElementById("content").appendChild(newElement);// Append <p> to the "content"
     }
   });
+function submitData(inputData) {
+  fetch('/postData', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ inputData }),
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch((error) => console.error('Error:', error));
+}
