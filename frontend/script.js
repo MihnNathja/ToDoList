@@ -15,14 +15,13 @@ document.getElementById("myInput").addEventListener("keypress", function(event) 
     }
   });
 function submitData(inputData) {
-  fetch('/postData', {
+  fetch('http://127.0.0.1:5000//postData', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ inputData }),
+    body: JSON.stringify({
+      "info": inputData
+    }),
   })
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch((error) => console.error('Error:', error));
 }
