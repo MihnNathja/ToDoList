@@ -8,10 +8,10 @@ window.onload = async function() {
 };
 function addNewElement(inputValue)
 {
-  var newElement = document.createElement("p"); 
-  var textNode = document.createTextNode(inputValue); // Create a text node with input value
-  newElement.appendChild(textNode); // Append the text to <p>
-  document.getElementById("content").appendChild(newElement);// Append <p> to the "content"
+  var newElement = document.createElement("li"); 
+  var text = document.createTextNode(inputValue);
+  newElement.appendChild(text);
+  document.getElementById("data").appendChild(newElement);
 }
 document.getElementById("myInput").addEventListener("keypress", function(event) {
     // Number 13 is the "Enter" key on the keyboard
