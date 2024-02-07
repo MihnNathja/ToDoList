@@ -13,6 +13,7 @@ data = []
 @app.route('/getData', methods=['GET'])
 def getData():
     global data
+
     return data
 
 
